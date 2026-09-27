@@ -1,0 +1,17 @@
+{
+  "name": "repomd-sample-app",
+  "version": "1.0.0",
+  "description": "Sample repo with intentionally planted issues for RepoMD (IBM Bob 2.0) demo",
+  "main": "src/app.js",
+  "scripts": {
+    "start": "node src/app.js",
+    "test": "jest"
+  },
+  "dependencies": {
+    "lodash": "4.17.15",
+    "axios": "0.19.0"
+  },
+  "devDependencies": {
+    "jest": "^29.0.0"
+  }
+}

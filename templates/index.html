@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RepoMD — Code Health Monitor</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../public/style.css">
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-mark">
+    <svg width="40" height="40" viewBox="0 0 28 28" fill="none">
+      <path d="M6 4v9a5 5 0 0 0 10 0V9" stroke="#4FD8C4" stroke-width="2" stroke-linecap="round"/>
+      <circle cx="20" cy="6" r="2.5" stroke="#4FD8C4" stroke-width="2"/>
+      <path d="M4 20l3-3 2 2 3-4 2 3 3-2" stroke="#E7ECEF" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    <span class="nav-wordmark">RepoMD</span>
+  </div>
+  <div class="nav-links">
+    <a class="nav-link" href="#categories">Diagnostics</a>
+    <a class="nav-link" href="#pipeline">Workflow</a>
+    <a class="nav-link" href="#about">About</a>
+  </div>
+  <a class="nav-cta" href="#" id="repoBtn">Repository ↗</a>
+</nav>
+
+<header class="hero">
+  <div class="hero-text">
+    <h1>Your codebase has vitals.<br>RepoMD reads them.</h1>
+    <p class="hero-sub">Four specialized agents run a full diagnostic across bugs, security, tests, and documentation — then fix what they find, and verify the fix before it ships.</p>
+    <div class="hero-actions">
+      <a class="btn-primary" href="#pipeline">See the workflow</a>
+      <a class="btn-ghost" href="#categories">View diagnostics</a>
+    </div>
+  </div>
+
+  <div class="vitals-panel">
+    <div class="vitals-head">
+      <span class="dot" id="statusDot"></span>
+      <span class="mono">repomd-test-app</span>
+    </div>
+    <svg class="ecg" viewBox="0 0 340 70" preserveAspectRatio="none">
+      <polyline points="0,35 40,35 55,10 70,60 85,35 140,35 155,20 170,50 185,35 230,35 245,15 260,55 275,35 340,35"
+        fill="none" stroke="#4FD8C4" stroke-width="2"/>
+    </svg>
+    <div class="score-row">
+      <div class="score-block">
+        <span class="score-label mono">before</span>
+        <span class="score-num score-bad" id="scoreBefore">45</span>
+      </div>
+      <span class="score-arrow">→</span>
+      <div class="score-block">
+        <span class="score-label mono">after</span>
+        <span class="score-num score-good" id="scoreAfter">88</span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section class="strip">
+  <div class="strip-item">
+    <span class="strip-num mono">90 → 15<small>min</small></span>
+    <span class="strip-label">time to resolution</span>
+  </div>
+  <div class="strip-item">
+    <span class="strip-num mono">4</span>
+    <span class="strip-label">parallel subagents</span>
+  </div>
+  <div class="strip-item">
+    <span class="strip-num mono">100%</span>
+    <span class="strip-label">fixes validated pre-merge</span>
+  </div>
+</section>
+
+<section class="categories" id="categories">
+  <p class="section-kicker">What gets checked</p>
+  <div class="cat-grid">
+    <div class="cat-card">
+      <span class="cat-tag tag-red">7 found</span>
+      <h3>Bugs &amp; Code Quality</h3>
+      <p>Duplicate logic, dead code, and functions carrying too much branching complexity.</p>
+    </div>
+    <div class="cat-card">
+      <span class="cat-tag tag-amber">2 found</span>
+      <h3>Security</h3>
+      <p>Outdated dependencies with known vulnerabilities, flagged with a safe upgrade path.</p>
+    </div>
+    <div class="cat-card">
+      <span class="cat-tag tag-teal">12 gaps</span>
+      <h3>Test Coverage</h3>
+      <p>Exported functions with no corresponding test, each paired with a generated one.</p>
+    </div>
+    <div class="cat-card">
+      <span class="cat-tag tag-teal">6 gaps</span>
+      <h3>Documentation</h3>
+      <p>Public functions missing a docstring, filled in from their own signature and logic.</p>
+    </div>
+  </div>
+</section>
+
+<section class="pipeline" id="pipeline">
+  <p class="section-kicker">How a fix reaches your repo</p>
+  <ol class="pipeline-list">
+    <li><span class="mono">01</span><div><h4>Detect</h4><p>Four agents scan the repo in parallel.</p></div></li>
+    <li><span class="mono">02</span><div><h4>Analyze</h4><p>Findings are ranked by severity, P0 to P2.</p></div></li>
+    <li><span class="mono">03</span><div><h4>Fix</h4><p>Safe, deterministic issues are patched directly.</p></div></li>
+    <li><span class="mono">04</span><div><h4>Validate</h4><p>A separate agent challenges every fix before it's kept.</p></div></li>
+    <li><span class="mono">05</span><div><h4>Verify</h4><p>The suite re-runs; the health score is recalculated.</p></div></li>
+    <li><span class="mono">06</span><div><h4>Document</h4><p>A plain-language report ships alongside the diff.</p></div></li>
+  </ol>
+</section>
+
+<section class="about" id="about">
+  <p class="about-title">RepoMD</p>
+  <div class="about-grid">
+    <p class="about-text">RepoMD is an autonomous developer workflow system — not just a coding assistant. Instead of a developer manually inspecting code, searching logs, writing tests, and updating docs one at a time, RepoMD runs four specialized agents in parallel, aggregates their findings into a single Health Score, and executes the fix itself once a separate validator has checked it's safe. What used to take 60–90 minutes per review cycle now takes 10–15.</p>
+  </div>
+</section>
+
+<footer class="foot" id="footer">
+  <div class="foot-top">
+    <div class="foot-brand">
+      <svg width="26" height="26" viewBox="0 0 28 28" fill="none">
+        <path d="M6 4v9a5 5 0 0 0 10 0V9" stroke="#4FD8C4" stroke-width="2" stroke-linecap="round"/>
+        <circle cx="20" cy="6" r="2.5" stroke="#4FD8C4" stroke-width="2"/>
+        <path d="M4 20l3-3 2 2 3-4 2 3 3-2" stroke="#E7ECEF" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <span class="nav-wordmark">RepoMD</span>
+    </div>
+    <div class="foot-cols">
+      <div class="foot-col">
+        <span class="foot-col-title">Product</span>
+        <a href="#categories">Diagnostics</a>
+        <a href="#pipeline">Workflow</a>
+      </div>
+      <div class="foot-col">
+        <span class="foot-col-title">Trust</span>
+        <span class="foot-static">Validator-checked fixes</span>
+        <span class="foot-static">Human approval before merge</span>
+        <span class="foot-static">No auto-push to production</span>
+      </div>
+    </div>
+  </div>
+  <div class="foot-bottom">
+    <p class="foot-note">© 2026 RepoMD. All rights reserved. Authorized by Sana G. Qadir.</p>
+  </div>
+</footer>
+
+<div class="modal-overlay" id="repoModal">
+  <div class="modal-box">
+    <p class="modal-title">Open a repository link</p>
+    <input type="text" id="repoInput" class="modal-input" placeholder="https://github.com/your-username/your-repo">
+    <div class="modal-actions">
+      <button class="modal-cancel" id="repoCancel">Cancel</button>
+      <button class="modal-go" id="repoGo">Open ↗</button>
+    </div>
+  </div>
+</div>
+
+<script src="../public/script.js"></script>
+</body>
+</html>
