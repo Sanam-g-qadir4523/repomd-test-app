@@ -1,0 +1,5 @@
+node_modules/
+.git/
+bob_sessions/
+*.log
+.DS_Store
