@@ -54,7 +54,7 @@
       <span class="score-arrow">→</span>
       <div class="score-block">
         <span class="score-label mono">after</span>
-        <span class="score-num score-good" id="scoreAfter">88</span>
+        <span class="score-num score-good" id="scoreAfter">86</span>
       </div>
     </div>
   </div>
@@ -79,24 +79,24 @@
   <p class="section-kicker">What gets checked</p>
   <div class="cat-grid">
     <div class="cat-card">
-      <span class="cat-tag tag-red">7 found</span>
+      <span class="cat-tag tag-amber">3 remaining</span>
       <h3>Bugs &amp; Code Quality</h3>
-      <p>Duplicate logic, dead code, and functions carrying too much branching complexity.</p>
+      <p>Duplicate logic, dead code, and one high-complexity function — flagged for manual review, not auto-fixed.</p>
     </div>
     <div class="cat-card">
-      <span class="cat-tag tag-amber">2 found</span>
+      <span class="cat-tag tag-teal">0 remaining</span>
       <h3>Security</h3>
-      <p>Outdated dependencies with known vulnerabilities, flagged with a safe upgrade path.</p>
+      <p>lodash and axios upgraded to patched versions. Both known CVEs resolved and verified.</p>
     </div>
     <div class="cat-card">
-      <span class="cat-tag tag-teal">12 gaps</span>
+      <span class="cat-tag tag-teal">9/9 covered</span>
       <h3>Test Coverage</h3>
-      <p>Exported functions with no corresponding test, each paired with a generated one.</p>
+      <p>40 test cases generated across two files, covering every previously untested function.</p>
     </div>
     <div class="cat-card">
-      <span class="cat-tag tag-teal">6 gaps</span>
+      <span class="cat-tag tag-teal">0 gaps</span>
       <h3>Documentation</h3>
-      <p>Public functions missing a docstring, filled in from their own signature and logic.</p>
+      <p>All functions now carry JSDoc comments, generated from their own signature and logic.</p>
     </div>
   </div>
 </section>
